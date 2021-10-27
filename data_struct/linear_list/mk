@@ -1,0 +1,11 @@
+#!/bin/bash
+
+clear
+
+gcc test_linear_list.c \
+	_linear_list.c \
+	-o ../../bin/test_linear_list.o
+
+chmod a+x ../../bin/test_linear_list.o
+../../bin/test_linear_list.o
+
