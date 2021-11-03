@@ -1,0 +1,14 @@
+#!/bin/bash
+
+clear
+
+
+gcc stack.c \
+	test_stack_func.c \
+-I ../../depend/include/ \
+-o ../../bin/test_stack_func.o \
+
+
+chmod a+x ../../bin/test_stack_func.o
+
+../../bin/test_stack_func.o

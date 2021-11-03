@@ -63,7 +63,7 @@ void test_middle() {
 }
 
 int main() {
-	test_middle();
+//	test_middle();
 //	test_base();
 //	
 

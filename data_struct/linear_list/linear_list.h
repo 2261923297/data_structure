@@ -33,6 +33,7 @@ struct __linear_list {
 		printf("[error] %s:%d { %s } can^t be 0\n", __FILE__, __LINE__, #val);	\
 		return; \
 	}
+
 typedef struct __linear_list  __linear_list;
 
 void init_list(__linear_list **list);
