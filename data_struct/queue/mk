@@ -1,0 +1,13 @@
+#!/bin/bash 
+
+ clear 
+ rm ~/c/bin/queue.o 
+
+ gcc -I ~/c/depend/include/ -o ~/c/bin/queue.o \
+ test_queue_func.c queue.c 
+
+ chmod a+x ~/c/bin/queue.o 
+
+ ~/c/bin/queue.o 
+
+

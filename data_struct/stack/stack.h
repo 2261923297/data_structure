@@ -6,6 +6,12 @@
 
 #include "macro.h"
 #define elem_t int
+/**
+ *	__stack_st      // 存储层
+ *	__stack_b_op	// 基操层 crud
+ *	_stack			// 应用层 // 封装层
+ *
+ * */
 
 typedef struct stack_structure {
 	elem_t* elems;
@@ -31,6 +37,7 @@ typedef struct base_operation {
 	uint32_t (*traverse)(st_t* st, bool visit(elem_t* elem), const char* profix);
 	
 } __stack_op;
+
 
 typedef struct _stack {
 	__stack_st		*ss;

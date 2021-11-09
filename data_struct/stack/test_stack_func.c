@@ -27,27 +27,34 @@ void init_stack(_stack* st, size_t capacity) {
 	printf("init_end\n");
 }
 
+
+void init_stack_2(_stack* st, size_t capacity) {
+
+}
 void show_data(_stack* st) {
 	
 }
 void test_base() {
 	printf("base_beg\n");
 	_stack st;
-	
-	init_stack(&st, 8);
+
+	if() {
+		init_stack(&st, 8);
+	} else {
+		init_stack_2(&st, 8);
+	}
 	for(int i = 0; i < 20; i++) {
 		st.push(&st, &i);
 		traverse(&st, print_stdout);
 	}
 
 	elem_t elem;
-	/*
 	for(int i = 1; i < 20; i++) {
 		st.pop(&st, &elem);
 		printf("\npop_elem = %d, ", elem);
 		traverse(&st, print_stdout);
 	}
-	*/
+
 }
 int main() {
 	printf("hello stack!\n");
