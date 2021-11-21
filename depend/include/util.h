@@ -9,6 +9,8 @@
 static inline uint64_t cur_time_ms();
 static inline uint64_t cur_time_us();
 
+#define traverse(data_structure, visit) data_structure->bo->traverse(data_structure->st, visit, #visit)
+
 
 
 #define test_func(func, ...)  do { \
@@ -21,6 +23,11 @@ static inline uint64_t cur_time_us();
 
 //
 
+#define print_log(level, msg) \
+	do { fprintf(stdout, "[%s] %s:%d desc: %s\n", #level, __FILE__, __LINE__, (msg)); } while(0);
+
+#define print_error(msg) print_log(ERROR, msg);
+#define print_info(msg)  print_log(INFO, msg);
 
 #define print_val(val, format) \
 	printf("[info] %s:%d %s = %" #format "\n", __FILE__, __LINE__, #val, val);
@@ -35,7 +42,17 @@ static inline uint64_t cur_time_us();
 	return rt_val;				\
 //
 
-#define mlc(_T) ((#_T)*)malloc(sizeof((#_T)))
+#define EMPTY_RETURN(val)  \
+	if(val == 0) { \
+		printf("[error] %s:%d { %s } can^t be 0\n", __FILE__, __LINE__, #val);	\
+		return; \
+	}
+
+#define EMPTY_RETURN_VAL(val, rt)  \
+	if(val == 0) { \
+		printf("[error] %s:%d { %s } can^t be 0\n", __FILE__, __LINE__, #val);	\
+		return rt; \
+	}
 
 static inline uint64_t 
 cur_time_us() {
