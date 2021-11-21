@@ -152,7 +152,7 @@ int array_find(queue_st* st, bool cmp(data_t*), data_t* data) {
 	return -1;
 }
 void array_traverse(queue_st* st, void visit(data_t* data), const char* profix) {
-	printf("queue_traverse: %s\n", profix);
+	printf("queue_traverse: array_traverse %s\n", profix);
 	for(size_t i = 0; i < st->len; i++) {
 		visit((data_t*)st->head + i);
 	}

@@ -1,4 +1,7 @@
+
+#define elem_t link_node_t
 #include "queue.h"
+#include "util.h"
 
 
 

@@ -1,26 +1,36 @@
 #pragma once
 
-#include <macro.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 
+#include "elem_type.h"
+#include "util.h"
+
 #ifndef data_t 
 #define data_t int
 #endif
 
+
 #ifndef elem_t
-#define elem_t data_t 
+
+	#ifdef STORAGE_LINK
+		#define elem_t link_node_t 
+	#else 
+		#define elem_t data_t
+	#endif
+
 #endif
 
+// 底层数据
 typedef struct __link_node {
 	data_t* data;
 	struct  __link_node* prior;
 	struct  __link_node* next;
 } link_node_t;
 
+// 存储
 typedef struct __queue_st {
 	elem_t* head;
 	elem_t* peer;
@@ -30,6 +40,7 @@ typedef struct __queue_st {
 
 } queue_st;
 
+// 基本操作
 typedef struct __queue_bo {
 	void (*init_st)(struct __queue_bo* bo, queue_st* st);
 	void (*init_elem)(elem_t* elem, data_t* data);
@@ -44,6 +55,7 @@ typedef struct __queue_bo {
 	void (*traverse)(queue_st* st, void visit(data_t* data), const char* profix);
 } queue_bo;
 
+// 封装
 typedef struct queue {
 	queue_st*     st;
 	queue_bo*	  bo;
@@ -54,7 +66,8 @@ typedef struct queue {
 	
 } queue_t;
 
-// 初始化模块
+
+// 初始化模块， 绑定函数
 void init_queue(queue_t* t, void init_st(struct __queue_bo *bo, queue_st* st), void init_bo(queue_bo* bo));
 void bind_queue(queue_t* q);
 void init_qbo(queue_bo* bo);

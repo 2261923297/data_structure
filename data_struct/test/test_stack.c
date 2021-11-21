@@ -38,7 +38,7 @@ void test_base() {
 	printf("base_beg\n");
 	_stack st;
 
-	if() {
+	if(1) {
 		init_stack(&st, 8);
 	} else {
 		init_stack_2(&st, 8);

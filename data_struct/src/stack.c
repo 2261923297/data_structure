@@ -1,4 +1,5 @@
 #include "stack.h"
+#include "util.h"
 
 st_t* stack_create(st_t* st, size_t capacity) {
 	if(st->elems != NULL) {
@@ -76,7 +77,6 @@ void stack_push(_stack* s, elem_t* e) {
 	EMPTY_RETURN(e);
 	EMPTY_RETURN(s->ss->elems);
 	
-	printf("push_beg\n");
 	if(s->bo->len(s->ss) >= s->bo->capacity(s->ss)) {
 		s->bo->recreate(s->ss, s->bo->capacity(s->ss));
 	}

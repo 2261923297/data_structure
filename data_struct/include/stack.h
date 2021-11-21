@@ -64,19 +64,3 @@ uint32_t stack_traverse(st_t* st, bool visit(elem_t* elem), const char* profix);
 void stack_push(_stack* s, elem_t* e);
 void stack_pop(_stack* s, elem_t* e);
 
-/*
-typedef struct stack {
-	_stack s;
-	
-	void create(size_t capacity);
-	void destory();
-
-	bool empty();
-	uint64_t len();
-
-	void push(elem_t *e);
-	void pop(elem_t *e);
-	
-} stack;
-
-*/
